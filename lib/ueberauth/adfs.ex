@@ -229,10 +229,8 @@ defmodule Ueberauth.Strategy.ADFS do
   end
 
   defp env_present?(env) do
-    if Keyword.has_key?(env, :adfs_url)
-    && Keyword.has_key?(env, :adfs_metadata_url)
-    && Keyword.has_key?(env, :client_id)
-    && Keyword.has_key?(env, :resource_identifier) do
+    if Keyword.has_key?(env, :adfs_url) && Keyword.has_key?(env, :adfs_metadata_url) &&
+         Keyword.has_key?(env, :client_id) && Keyword.has_key?(env, :resource_identifier) do
       env
       |> Keyword.take([:adfs_url, :adfs_metadata_url, :client_id, :resource_identifier])
       |> Keyword.values()
